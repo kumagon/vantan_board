@@ -26,6 +26,6 @@
 </html>
 
 <?php
-echo '入力したメールアドレス' . $_POST['email'] . "<br";
-echo '入力したパスワード' . $_POST['password'] . "<br";
-echo '入力した名前' . $_POST['name'] . "<br";
+echo '入力したメールアドレス' . $_POST['email'] . "<br/>";
+echo '入力したパスワード' . $_POST['password'] . "<br/>";
+echo '入力した名前' . $_POST['name'] . "<br/>";
