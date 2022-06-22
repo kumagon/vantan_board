@@ -1,3 +1,22 @@
+<?php
+$message = '';
+try {
+    $DBSERVER = 'localhost';
+    $DBUSER = 'board';
+    $DBPASSWD = 'boardpw';
+    $DBNAME = 'board';
+
+    $dsn = 'mysql:'
+        . 'host=' . $DBSERVER . ';'
+        . 'dbname=' . $DBNAME . ';'
+        . 'charset=utf8';
+    $pdo = new PDO($dsn, $DBUSER, $DBPASSWD, array(PDO::ATTR_EMULATE_PREPARES => false));
+    $message = '接続に成功しました';
+} catch(Exception $e) {
+  $message = $e->getMessage();
+}
+echo $message;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
