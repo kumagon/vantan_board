@@ -54,6 +54,7 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name
 <div>
     <div style="color: red">
         <?php echo $message; ?>
+        <?php echo $_POST['name']; ?>
     </div>
     <form action="/vantan_board/register.php" method="post">
         <label>メールアドレス: <input type="email" name="email"/></label><br/>
