@@ -12,7 +12,7 @@
         <a href="/vantan_board/login.php">ログイン</a>
         <a href="/vantan_board/logout.php">ログアウト</a>
     </div>
-    <h1>新規作成2222</h1>
+    <h1>新規作成</h1>
 </header>
 <div>
     <form action="/vantan_board/register.php" method="post">
