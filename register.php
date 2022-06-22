@@ -23,9 +23,9 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name
     $sql = 'INSERT INTO `users` (name, email, password, created, modified)';
     $sql .= ' VALUES (:name, :email, :password, NOW(), NOW())';
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
-    $stmt->bindValue(':password', $password, \PDO::PARAM_STR);
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
     $result = $stmt->execute();
     if($result) {
         $message = 'ユーザーを作成しました';
