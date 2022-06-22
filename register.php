@@ -14,7 +14,7 @@ try {
 } catch (Exception $e) {
     $message = "接続に失敗しました: {$e->getMessage()}";
 }
-
+var_dump($_POST);
 if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
