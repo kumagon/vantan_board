@@ -2,7 +2,7 @@
 $message = '';
 try {
     $DBSERVER = 'localhost';
-    $DBUSER = 'board_b';
+    $DBUSER = 'board';
     $DBPASSWD = 'boardpw';
     $DBNAME = 'board';
 
