@@ -43,5 +43,15 @@ var_dump($boards);
 <div>
     <?php echo "{$_SESSION['name']}さんようこそ"; ?>
 </div>
+<div>
+    <h2>掲示板一覧</h2>
+    <ul>
+    <?php
+    foreach ($boards as $board) {
+        echo "<li>{$board['title']}</li>";
+    }
+    ?>
+    </ul>
+</div>
 </body>
 </html>
