@@ -21,7 +21,6 @@ $sql = 'SELECT * FROM `boards` ORDER BY id DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $boards = $stmt->fetchAll();
-var_dump($boards);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +47,7 @@ var_dump($boards);
     <ul>
     <?php
     foreach ($boards as $board) {
-        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}</a></li>";
+        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}（{{$board['createdAt']}}）</a></li>";
     }
     ?>
     </ul>
