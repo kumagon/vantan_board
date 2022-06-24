@@ -48,7 +48,7 @@ var_dump($boards);
     <ul>
     <?php
     foreach ($boards as $board) {
-        echo "<li><a href=\"/vantan_board/board.php{$board['id']}\" >{$board['title']}</a></li>";
+        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}</a></li>";
     }
     ?>
     </ul>
