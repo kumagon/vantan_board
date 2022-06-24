@@ -67,7 +67,7 @@ $comments = $stmt->fetchAll();
         <a href="/vantan_board/logout.php">ログアウト</a>
         <a href="/vantan_board/create_board.php">掲示板作成</a>
     </div>
-    <h1><?php echo $board['title'] ?></h1>
+    <h1><?php echo $board['title']; ?></h1>
 </header>
 <div>
     <ul>
@@ -80,7 +80,7 @@ $comments = $stmt->fetchAll();
 </div>
 <?php if (!empty($_SESSION['id'])) { ?>
     <div>
-        <form action="/vantan_board/board.php" method="post">
+        <form action="/vantan_board/board.php?id=<?php echo $id; ?>" method="post">
             <label>コメント: <input type="text" name="message"/></label><br/>
             <input type="submit" value="コメントする">
         </form>
