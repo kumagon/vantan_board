@@ -28,6 +28,23 @@ if (empty($board)) {
     exit;
 }
 
+if (!empty($_POST['message'])) {
+    $message = $_POST['message'];
+
+    $sql = 'INSERT INTO `comments` (boardId, userId, comment, createdAt)';
+    $sql .= ' VALUES (:boardId, :userId, :comment, NOW())';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':boardId', $id, PDO::PARAM_STR);
+    $stmt->bindValue(':userId', $_SESSION['id'], PDO::PARAM_INT);
+    $stmt->bindValue(':comment', $message, PDO::PARAM_STR);
+    $result = $stmt->execute();
+    if ($result) {
+        // コメントしました
+    } else {
+        $message = '登録に失敗しました';
+    }
+}
+
 $sql = 'SELECT * FROM `comments` WHERE boardId = :boardId ORDER BY createdAt';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':boardId', $id, PDO::PARAM_STR);
@@ -61,5 +78,13 @@ $comments = $stmt->fetchAll();
         ?>
     </ul>
 </div>
+<?php if (!empty($_SESSION['id'])) { ?>
+    <div>
+        <form action="/vantan_board/board.php" method="post">
+            <label>コメント: <input type="text" name="message"/></label><br/>
+            <input type="submit" value="コメントする">
+        </form>
+    </div>
+<?php } ?>
 </body>
 </html>
