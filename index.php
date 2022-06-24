@@ -47,7 +47,7 @@ $boards = $stmt->fetchAll();
     <ul>
     <?php
     foreach ($boards as $board) {
-        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}（{{$board['createdAt']}}）</a></li>";
+        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}）</a></li>";
     }
     ?>
     </ul>
