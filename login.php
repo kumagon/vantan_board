@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!empty($_SESSION['id'])) {
+    header('Location: /vantan_board/index.php');
+    exit;
+}
+
 $message = '';
 try {
     $DBSERVER = 'localhost';
@@ -25,7 +30,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
     $user = $stmt->fetch();
-    if(!empty($user['id']) && $user['password'] === $password) {
+    if (!empty($user['id']) && $user['password'] === $password) {
         $_SESSION['id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['password'] = $user['password'];
