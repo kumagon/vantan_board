@@ -24,7 +24,7 @@ $boards = $stmt->fetchAll();
 
 $boardIds = [];
 foreach ($boards as $board) {
-    $boardIds[$board['id']] = $board['id'];
+    $boardIds[$board['userId']] = $board['userId'];
 }
 $boardIdsString = implode(',', $boardIds);
 $sql = 'SELECT * FROM `users` WHERE id IN (' . $boardIdsString . ')';
