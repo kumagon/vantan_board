@@ -36,6 +36,8 @@ foreach ($users as $user) {
     $userData[$user['id']] = $user;
 }
 var_dump($boards);
+echo '<br>';
+echo '<br>';
 var_dump($userData);
 ?>
 <!DOCTYPE html>
@@ -63,7 +65,7 @@ var_dump($userData);
     <ul>
         <?php
         foreach ($boards as $board) {
-            echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}</a></li>";
+            echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}({$userData[$board['userId']]['name']})</a></li>";
         }
         ?>
     </ul>
