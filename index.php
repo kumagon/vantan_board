@@ -17,11 +17,11 @@ try {
     $message = "接続に失敗しました: {$e->getMessage()}";
 }
 
-$sql = 'SELECT * FROM `boards` ORDER BY id DESC';
+$sql = 'SELECT * FROM `boards` LEFT JOIN `users` ON boards.userId = users.id ORDER BY id DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $boards = $stmt->fetchAll();
-var_dump($boards);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
