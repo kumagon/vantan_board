@@ -21,7 +21,7 @@ $sql = 'SELECT * FROM `boards` LEFT JOIN `users` ON boards.userId = users.id ORD
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $boards = $stmt->fetchAll();
-
+var_dump($boards);
 ?>
 <!DOCTYPE html>
 <html lang="en">
