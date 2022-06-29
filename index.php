@@ -21,6 +21,7 @@ $sql = 'SELECT * FROM `boards` ORDER BY id DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $boards = $stmt->fetchAll();
+var_dump($boards);
 ?>
 <!DOCTYPE html>
 <html lang="en">
