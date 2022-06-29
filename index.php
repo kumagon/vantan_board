@@ -27,7 +27,7 @@ foreach ($boards as $board) {
     $boardIds[$board['id']] = $board['id'];
 }
 $boardIdsString = implode(',', $boardIds);
-$sql = "SELECT * FROM `users` WHERE id IN '$boardIdsString'";
+$sql = "SELECT * FROM `users` WHERE id IN `$boardIdsString`";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll();
