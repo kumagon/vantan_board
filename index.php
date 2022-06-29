@@ -27,7 +27,8 @@ foreach ($boards as $board) {
     $boardIds[$board['id']] = $board['id'];
 }
 $boardIdsString = implode(',', $boardIds);
-$sql = "SELECT * FROM `users` WHERE id IN `$boardIdsString`";
+var_dump($boardIdsString);
+$sql = 'SELECT * FROM `users` WHERE id IN `' . $boardIdsString . '`';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll();
@@ -56,16 +57,16 @@ var_dump($userData);
     <h1>トップ</h1>
 </header>
 <div>
-    <?php echo  htmlspecialchars("{$_SESSION['name']}さんようこそ"); ?>
+    <?php echo htmlspecialchars("{$_SESSION['name']}さんようこそ"); ?>
 </div>
 <div>
     <h2>掲示板一覧</h2>
     <ul>
-    <?php
-    foreach ($boards as $board) {
-        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}（{$userData[$board['userId']]['name']}）</a></li>";
-    }
-    ?>
+        <?php
+        foreach ($boards as $board) {
+            echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}</a></li>";
+        }
+        ?>
     </ul>
 </div>
 </body>
