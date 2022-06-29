@@ -17,11 +17,26 @@ try {
     $message = "接続に失敗しました: {$e->getMessage()}";
 }
 
-$sql = 'SELECT * FROM `boards` LEFT JOIN `users` ON boards.userId = users.id ORDER BY boards.id DESC';
+$sql = 'SELECT * FROM `boards` ORDER BY id DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $boards = $stmt->fetchAll();
+
+$boardIds = [];
+foreach ($boards as $board) {
+    $boardIds[$board['id']] = $board['id'];
+}
+$boardIdsString = implode(',', $boardIds);
+$sql = "SELECT * FROM `users` WHERE id IN '$boardIdsString'";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetchAll();
+$userData = [];
+foreach ($users as $user) {
+    $userData[$user['id']] = $user;
+}
 var_dump($boards);
+var_dump($userData);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +63,7 @@ var_dump($boards);
     <ul>
     <?php
     foreach ($boards as $board) {
-        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}（{$board['name']}）</a></li>";
+        echo "<li><a href=\"/vantan_board/board.php?id={$board['id']}\" >{$board['title']}（{$userData[$board['userId']]['name']}）</a></li>";
     }
     ?>
     </ul>
