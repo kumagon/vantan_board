@@ -41,7 +41,7 @@ var_dump($boards);
     <h1>トップ</h1>
 </header>
 <div>
-    <?php echo "{$_SESSION['name']}さんようこそ"; ?>
+    <?php echo  htmlspecialchars("{$_SESSION['name']}さんようこそ"); ?>
 </div>
 <div>
     <h2>掲示板一覧</h2>
