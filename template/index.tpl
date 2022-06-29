@@ -5,7 +5,7 @@
     <title>トップ</title>
 </head>
 <body>
-{include file="common/header.tpl"}
+{include file="common/header.tpl" user=$user}
 <h1>トップ</h1>
 <div>{$user->name}さんようこそ</div>
 <div>
